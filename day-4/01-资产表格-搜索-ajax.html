@@ -67,7 +67,7 @@
     </div>
 
     <script src="./vue.js"></script>
-    <script src="../node_modules/axios/dist/axios.js"></script>
+    <script src="./node_modules/axios/dist/axios.js"></script>
     <script>
       // 1. 进行vue实例化, 但是list数组初始化为 [], 数据应该后台请求回来的
       //    问题: 在哪发送请求? 在vue中发, 一般这种初始化的ajax请求, 会在vue中 created中发送
@@ -140,8 +140,9 @@
               });
           },
         },
+
         watch: {
-          //值变化了，就要做某些事情
+          // 值变化了, 就要做某些事情
           key(newValue) {
             // console.log(newValue)
             // 基于搜索关键字, 发送请求, 拿到搜索的结果, 进行展示
