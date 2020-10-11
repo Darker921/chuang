@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            {{ msg }}
+        </div>
+
+        <script src="./vue.js"></script>
+        <script>
+            Vue.component('cc-modal',{
+                template:`
+                <div class="modal">
+            <div class="title">
+              <h3>{{ title }}</h3>
+            </div>
+            <div class="content">
+              <slot name="content"></slot>
+            </div>
+            <div class="footer">
+              <slot money="100" title="大标题" :yes="yes" :no="no" name="footer"></slot>
+            </div>
+          </div>
+                `
+            })
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    msg: 'hello vue'
+                }
+            })
+        </script>
+    </body>
+</html>

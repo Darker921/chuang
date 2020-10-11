@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <cc-modal title="👮‍♀️">
+              <input type="text"><br>
+              <input type="text"><br>
+              <input type="text"><br>
+            </cc-modal>
+
+            <cc-modal title="提示">
+                <p>我是👮‍♀️</p>
+                <p>我是👮‍♀️</p>
+                <p>我是👮‍♀️</p>
+            </cc-modal>
+        </div>
+
+        <script src="./vue.js"></script>
+        <script>
+
+            Vue.component('cc-modal',{
+                template:`
+                <div class="modal">
+            <div class="title">
+              <h3>{{ title }}</h3>
+            </div>
+            <div class="content">
+              <slot></slot>
+            </div>
+            <div class="footer">
+              <button>确认</button>
+              <button>取消</button>
+            </div>
+          </div>
+                `,
+                props:['title']
+            })
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    msg: 'hello vue'
+                }
+            })
+        </script>
+    </body>
+</html>

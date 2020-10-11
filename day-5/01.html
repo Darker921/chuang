@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <h3>折叠面板</h3>
+            <pannel :title='testTitle' content='李氏千秋国承运，闯南走北夜归乡'></pannel>
+            <pannel :title='李闯' content='李氏千秋国承运，闯南走北夜归乡'></pannel>
+        </div>
+
+        <script src="./vue.js"></script>
+        <script>
+            Vue.component('pannel',{
+             template:`
+             <div class="pannel">
+            <div class="title">
+              <h4>{{ title }}</h4>
+              <!-- 按钮 -->
+              <span class="btn" @click="isShow = !isShow">
+                {{ isShow ? '收起' : '展开' }}
+              </span>
+            </div>
+            <!-- 切换显示的部分 -->
+            <div class="container" v-show="isShow">
+              {{ content }}
+            </div>
+          </div>
+             `,
+             props:['title','content'],
+             data(){
+                 return{
+                     isShow:true
+                 }
+             }
+            },)
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    testTitle: '测试'
+                }
+            })
+        </script>
+    </body>
+</html>
